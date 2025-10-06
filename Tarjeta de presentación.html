@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Sebastian Gómez - Tarjeta de Presentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(180deg, #f59e0b 0%, #d97706 50%, #ffffff 50%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+            height: 200px;
+            position: relative;
+        }
+
+        .profile-container {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info {
+            text-align: center;
+            padding: 80px 30px 30px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .social-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 30px 30px;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+        .instagram { background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #FD1D1D 100%); }
+        .gmail { background: linear-gradient(135deg, #EA4335 0%, #FBBC05 25%, #34A853 50%, #4285F4 75%); }
+        .linkedin { background: #0077B5; }
+        .phone { background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%); color: #666; }
+
+        .icon-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .exchange-btn {
+            margin: 0 30px 30px;
+            padding: 18px;
+            background: white;
+            border: 2px solid #1a1a1a;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .exchange-btn:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Juan Sebastian Gómez
+N:Gómez;Juan Sebastian;;;
+TITLE:Ingeniero de Sistemas - Comercial
+ORG:Ebixu
+TEL;TYPE=CELL:+573007891157
+EMAIL:sebastian.gomez@ebixu.com
+URL:https://www.linkedin.com/in/juan-sebastian-gomez-estupiñan-418985169/
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Juan_Sebastian_Gomez.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+    <div class="card">
+        <div class="header">
+            <div class="profile-container">
+                <div class="profile-pic">
+                    <img src="https://i.ibb.co/MD48Fqg5/profile.png" alt="Juan Sebastian Gómez" crossorigin="anonymous" onerror="this.parentElement.innerHTML='JSG'; this.parentElement.style.fontSize='60px'; this.parentElement.style.fontWeight='bold'; this.parentElement.style.color='white';">
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="name">Juan Sebastian Gómez</div>
+            <div class="title">Ingeniero de Sistemas</div>
+            <div class="subtitle">Comercial</div>
+            <div class="subtitle">Ebixu</div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://wa.me/573007891157" class="social-icon" target="_blank">
+                <div class="icon whatsapp">📱</div>
+                <span class="icon-label">WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/ebixuco" class="social-icon" target="_blank">
+                <div class="icon instagram">📸</div>
+                <span class="icon-label">Instagram</span>
+            </a>
+            <a href="mailto:sebastian.gomez@ebixu.com?subject=Contacto%20desde%20tarjeta%20digital&body=Hola%20Juan%20Sebastian," class="social-icon">
+                <div class="icon gmail">✉️</div>
+                <span class="icon-label">Gmail</span>
+            </a>
+        </div>
+
+        <div class="social-icons" style="grid-template-columns: repeat(2, 1fr);">
+            <a href="#" class="social-icon" onclick="event.preventDefault(); downloadVCard();">
+                <div class="icon phone">📞</div>
+                <span class="icon-label">Guardar<br>contacto</span>
+            </a>
+            <a href="https://www.linkedin.com/in/juan-sebastian-gomez-estupiñan-418985169/" class="social-icon" target="_blank">
+                <div class="icon linkedin">💼</div>
+                <span class="icon-label">LinkedIn</span>
+            </a>
+        </div>
+
+        <button class="exchange-btn" onclick="window.open('https://wa.me/573007891157', '_blank')">
+            ⇄ Exchange Contact
+        </button>
+
+        <div class="footer">
+            ebixu.com
+        </div>
+    </div>
+</body>
+</html>
